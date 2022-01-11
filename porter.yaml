@@ -1,14 +1,25 @@
 version: v1
 resources:
-  - name: python-sample
-    source:
-      name: web
-    config:
-      build:
-        method: pack
-      values:
-        container:
-          port: 8080
-          env:
-            normal:
-              PORT: "8080"
+- name: postgres
+  source:
+    name: postgresql
+  config:
+    postgresqlPassword: testing
+- name: web
+  depends_on:
+  - postgres
+  source:
+    name: web
+  config:
+    build:
+      method: pack
+      builder: heroku/buildpacks:20
+      context: ./src
+    values:
+      container:
+        command: web
+        port: 8000
+        env:
+          normal:
+            POSTGRES_USERNAME: "{ .postgres.postgresqlUsername }"
+            POSTGRES_PASSWORD: "{ .postgres.postgresqlPassword }"
