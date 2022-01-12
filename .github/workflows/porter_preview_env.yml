@@ -13,13 +13,13 @@ jobs:
       with:
         action_id: ${{ github.run_id }}
         branch: ${{ github.head_ref }}
-        cluster: "31"
-        host: https://dashboard.dev.getporter.dev
-        installation_id: "21273036"
+        cluster: "59"
+        host: https://dashboard.staging.getporter.dev
+        installation_id: "18462798"
         namespace: pr-${{ github.event.pull_request.number }}-python-getting-started
         pr_id: ${{ github.event.pull_request.number }}
         pr_name: ${{ github.event.pull_request.title }}
-        project: "3"
+        project: "12"
         repo_name: python-getting-started
         repo_owner: ${{ github.repository_owner }}
-        token: ${{ secrets.PORTER_TOKEN_3 }}
+        token: ${{ secrets.PORTER_TOKEN_12 }}
