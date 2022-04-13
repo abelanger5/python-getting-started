@@ -3,6 +3,7 @@ resources:
 - name: postgres
   source:
     name: postgresql
+    repo: https://chart-addons.dev.getporter.dev
   config:
     postgresqlPassword: testing
 - name: web
@@ -10,6 +11,7 @@ resources:
   - postgres
   source:
     name: web
+    repo: https://chart-addons.dev.getporter.dev
   config:
     build:
       method: pack
