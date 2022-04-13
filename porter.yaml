@@ -14,7 +14,6 @@ resources:
     build:
       method: pack
       builder: heroku/buildpacks:20
-      context: ./src
     values:
       container:
         command: web
